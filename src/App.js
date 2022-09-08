@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ListaEquipos from './Components/Paginas/Privado/Equipos/ListaEquipos'
+import ListaUsuarios from './Components/Paginas/Privado/Usuarios/ListaUsuarios'
+import NuevoUsuario from './Components/Paginas/Privado/Usuarios/NuevoUsuario'
+import Inicio from './Components/Paginas/Publico/Inicio'
+import RecuperarPassword from './Components/Paginas/Publico/RecuperarPassword'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Inicio />} />
+        <Route path='/usuarios' element={<ListaUsuarios />} />
+        <Route path='/equipos' element={<ListaEquipos />} />
+        <Route path='/registro-usuario' element={<NuevoUsuario />} />
+        <Route path='/password' element={<RecuperarPassword />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
