@@ -5,21 +5,25 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Inicio = () => {
+  const {login}=useContext(AuthContext)
   const navigation = useNavigate()
   const [changeData, setChangeData] = useState({ user_name: '', user_pass: '' })
 
   //-------------LOGIN-------------------------
-  const login = (e) => {
-    e.preventDefault()
-    // console.log(changeData)
-    if (changeData.user_name === 'admin' && changeData.user_pass === 'admin') {
-      return navigation('/usuarios')
-    } else {
-      return alert('Contraseña Incorrecta')
-    }
-  }
+  // const login = (e) => {
+  //   e.preventDefault()
+  //   // console.log(changeData)
+  //   if (changeData.user_name === 'admin' && changeData.user_pass === 'admin') {
+  //     window.localStorage.setItem('login',true)
+  //     // return navigation('/usuarios')
+  //   } else {
+  //     return alert('Contraseña Incorrecta')
+  //   }
+  // }
 
   //-----------HANLDE CHANGE---------------------
   const handleChange = (e) => {
@@ -29,11 +33,12 @@ const Inicio = () => {
     })
   }
   return (
-    <Container fixed style={{display:'flex',height:'90vh', alignItems:'center',justifyContent:'center'}}>
+    <Container fixed style={{display:'flex',height:'70vh', alignItems:'center',justifyContent:'center'}}>
       <div >
         <Typography align='center' variant='h5' style={{marginBottom:50}}>Iniciar Sesion</Typography>
         <Container maxWidth='sm'>
-          <form onSubmit={login}>
+          <form onSubmit={()=>login(changeData)}>
+          {/* <form onSubmit={login}> */}
             <InputLabel style={{ marginBottom: 10 }}>Nombre de Usuario</InputLabel>
             <TextField
               name='user_name'
