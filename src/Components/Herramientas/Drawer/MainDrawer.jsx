@@ -9,7 +9,7 @@ const MainDrawer = () => {
     const {logout}=useContext(AuthContext)
     const navigate=useNavigate()
     const classes = useStyles()
-    console.log(classes.toolbar)
+    // console.log(classes.toolbar)
     return (
         <Drawer
             className={classes.drawer}

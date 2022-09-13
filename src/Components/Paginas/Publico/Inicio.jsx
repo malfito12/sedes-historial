@@ -19,7 +19,7 @@ const Inicio = () => {
   //   // console.log(changeData)
   //   if (changeData.user_name === 'admin' && changeData.user_pass === 'admin') {
   //     window.localStorage.setItem('login',true)
-  //     // return navigation('/usuarios')
+  //     return navigation('/private/usuarios')
   //   } else {
   //     return alert('Contraseña Incorrecta')
   //   }
@@ -32,6 +32,7 @@ const Inicio = () => {
       [e.target.name]: e.target.value
     })
   }
+  // console.log(changeData)
   return (
     <Container fixed style={{display:'flex',height:'70vh', alignItems:'center',justifyContent:'center'}}>
       <div >
