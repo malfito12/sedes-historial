@@ -3,6 +3,7 @@ import { Container, Typography, Button, TextField, InputLabel } from '@material-
 import {useNavigate} from 'react-router-dom'
 const NuevoUsuario = () => {
     const navigation=useNavigate()
+    
     return (
         <Container fixed>
             <Typography variant='h5' align='center'>Registrar Nuevo Usuario</Typography>
